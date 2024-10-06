@@ -1,38 +1,381 @@
-.App {
+/* Container for the user list and form pages */
+.container, .form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h1, h2 {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Link to create a new user */
+a.btn.btn-primary {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a.btn.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+td {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Alternate row color */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Actions column links */
+td a {
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+td a:hover {
+  color: #0056b3;
+}
+
+/* Delete button styling */
+td button {
+  padding: 6px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+td button:hover {
+  background-color: #c82333;
+}
+
+/* Form styling for Create, Edit, and View pages */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Form Header */
+.form-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Form Buttons */
+.form-container button,
+.form-container a.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.form-container button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.form-container button:hover {
+  background-color: #218838;
+}
+
+/* Cancel Button */
+.form-container a.cancel-btn {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.form-container a.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+/* Form Labels */
+.form-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Input Error (if you add validation) */
+.form-container .error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+
+
+/* Modal Form */
+.modal-body form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+}
+
+/* Input Fields */
+.modal-body input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Button Styles */
+.modal-body button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-body button[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Close Button */
+.modal-footer .btn-secondary {
+  padding: 10px 15px;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+
+
+/* Dim the background */
+.drawer-backdrop {
+  background-color: rgba(0, 0, 0, 0.4); /* Slightly dim the background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+/* Adjust drawer style */
+.drawer-container {
+  width: 350px;
+  background-color: white;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 101;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.btn-close {
+  background-color: gray;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  background-color: darkgray;
+}
+
+/* Spinner container styling */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Adjust the height as per your need */
+}
+
+/* User details styling (remains the same as before) */
+.user-details {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+
+/* User details container */
+.user-details {
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #ffffff;
+}
+
+/* Title */
+.user-details h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Details paragraphs */
+.user-details p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* Strong labels for user details */
+.user-details p strong {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Website link styling */
+.user-details a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.user-details a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-details {
+    padding: 20px;
+    margin: 20px auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .user-details h1 {
+    font-size: 1.5em;
+  }
+
+  .user-details p {
+    font-size: 1em;
   }
 }
+
+
